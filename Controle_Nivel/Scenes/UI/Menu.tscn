@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/UI/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/bg.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/btnTrocaCena.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/UI/Iniciar_p.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/Iniciar.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/Font/GAME ROBOT.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = SubResource( 1 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fundo" type="NinePatchRect" parent="."]
+margin_left = -122.017
+margin_top = -91.6706
+margin_right = 1387.98
+margin_bottom = 739.329
+texture = ExtResource( 2 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="VBox"]
+margin_right = 1280.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="Titulo" type="Label" parent="VBox"]
+margin_top = 54.0
+margin_right = 1280.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.588235, 0.588235, 0.588235, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = -3
+text = "Sistema de Controle"
+align = 1
+
+[node name="Margin2" type="MarginContainer" parent="VBox"]
+margin_top = 60.0
+margin_right = 1280.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="VBox" type="VBoxContainer" parent="VBox"]
+margin_left = 340.0
+margin_top = 164.0
+margin_right = 940.0
+margin_bottom = 464.0
+rect_min_size = Vector2( 600, 300 )
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="btnIniciar" parent="VBox/VBox" instance=ExtResource( 3 )]
+margin_left = 131.0
+margin_top = 96.0
+margin_right = 469.0
+margin_bottom = 203.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+CenaIndex = 1
