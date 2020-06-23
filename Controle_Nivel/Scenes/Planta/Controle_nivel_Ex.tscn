@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Planta/InterfaceNivel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Planta/Controlador_PID.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Planta/Controlador_Manual.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Planta/Planta_nivel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Planta/ControlBoard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Planta/Controle_nivel_Ex.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Planta/Charts.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/btnTrocaCena.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/UI/btnJogar.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/btnJogar_p.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/Font/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = SubResource( 1 )
+
+[node name="Controle_Nivel" type="Node"]
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Planta" type="Node" parent="."]
+
+[node name="InterfaceNivel" parent="Planta" instance=ExtResource( 1 )]
+position = Vector2( 254.951, 7.40247 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Planta_nivel" parent="Planta" instance=ExtResource( 4 )]
+
+[node name="ControlBoard" parent="." instance=ExtResource( 5 )]
+
+[node name="Controlador" type="Node" parent="."]
+
+[node name="PID" parent="Controlador" instance=ExtResource( 2 )]
+
+[node name="Manual" parent="Controlador" instance=ExtResource( 3 )]
+
+[node name="Vazao_Saida" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pgVazao_saida" type="ProgressBar" parent="Vazao_Saida"]
+margin_left = 867.149
+margin_top = 465.851
+margin_right = 983.149
+margin_bottom = 502.851
+rect_rotation = 90.0
+rect_scale = Vector2( 2, 2 )
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbVazao_saida" type="Label" parent="Vazao_Saida"]
+margin_left = 752.938
+margin_top = 422.484
+margin_right = 908.938
+margin_bottom = 491.484
+custom_fonts/font = SubResource( 2 )
+text = "Vazao Saída
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Charts" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.65
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.533
+margin_left = -6.10352e-05
+margin_top = -0.200001
+margin_right = -0.400024
+margin_bottom = 0.23996
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn" parent="UI" instance=ExtResource( 10 )]
+margin_left = 1107.48
+margin_top = 583.172
+margin_right = 1236.48
+margin_bottom = 683.172
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+expand = true
+CenaIndex = 3
+[connection signal="MV_changed" from="Planta/Planta_nivel" to="." method="_on_Planta_nivel_MV_changed"]
+[connection signal="PV_changed" from="Planta/Planta_nivel" to="." method="_on_Planta_nivel_PV_changed"]
+[connection signal="vazao_saida_changed" from="Planta/Planta_nivel" to="." method="_on_Planta_nivel_vazao_saida_changed"]
+[connection signal="Auto_changed" from="ControlBoard" to="." method="_on_ControlBoard_Auto_changed"]
+[connection signal="Liga_changed" from="ControlBoard" to="." method="_on_ControlBoard_Liga_changed"]
+[connection signal="PID_changed" from="ControlBoard" to="." method="_on_ControlBoard_PID_changed"]
+[connection signal="SP_changed" from="ControlBoard" to="." method="_on_ControlBoard_SP_changed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/GDCharts/script.gd" type="Script" id=1]
+[ext_resource path="res://assets/dot.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Planta/Charts.gd" type="Script" id=3]
+
+[node name="Charts" type="Control"]
+anchor_right = 0.445
+anchor_bottom = 0.462
+margin_right = -569.6
+margin_bottom = -332.64
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GDCharts" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+label_font = null
+MAX_VALUES = 12
+dot_texture = ExtResource( 2 )
+default_chart_color = Color( 1, 1, 1, 0 )
+grid_color = Color( 0.0666667, 0.0901961, 0.109804, 0.694118 )
+chart_type = 0
+line_width = 5.0
+hovered_radius_ratio = 1.1
+chart_background_opacity = 0.334
+UseAnimation = false
+
+[node name="SampleTime" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="SampleTime" to="." method="_on_SampleTime_timeout"]

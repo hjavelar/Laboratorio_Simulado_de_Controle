@@ -1,0 +1,420 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://planta_nivel.png" type="Texture" id=1]
+[ext_resource path="res://addons/GDCharts/script.gd" type="Script" id=2]
+[ext_resource path="res://Controle_Nivel.gd" type="Script" id=3]
+[ext_resource path="res://Nivel.png" type="Texture" id=4]
+[ext_resource path="res://Button_On.png" type="Texture" id=5]
+[ext_resource path="res://Button_Off.png" type="Texture" id=6]
+[ext_resource path="res://assets/dot.png" type="Texture" id=7]
+[ext_resource path="res://Botao_Manual_Automatico_ON.png" type="Texture" id=8]
+[ext_resource path="res://Botao_Manual_Automatico_OFF.png" type="Texture" id=9]
+[ext_resource path="res://CRL_imgs/Chave_seletora_CRL_zero_graus.jpg" type="Texture" id=10]
+[ext_resource path="res://CRL_imgs/Chave_seletora_CRL.jpg" type="Texture" id=11]
+[ext_resource path="res://assets/Font/Roboto-Black.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Scenes/Chart/Charts.gd" type="Script" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.142857, 0.48, 0.908571 )
+colors = PoolColorArray( 0.433333, 0.433333, 0.433333, 1, 0.417765, 0.417765, 0.417765, 1, 0.286824, 0.286824, 0.286824, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.980392, 0.054902, 0.270588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0156863, 0.854902, 0.0509804, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0509804, 0, 0.898039, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+font_data = ExtResource( 12 )
+
+[node name="Controle_Nivel" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Planta_Nivel" type="Node2D" parent="."]
+
+[node name="lbl_Vazao_Saida" type="Label" parent="Planta_Nivel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 760.23
+margin_top = 443.778
+margin_right = 817.23
+margin_bottom = 474.778
+rect_scale = Vector2( 2, 2 )
+text = "Vazão de
+saída"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vazao_saida" type="ProgressBar" parent="Planta_Nivel"]
+margin_left = 792.91
+margin_top = 694.618
+margin_right = 911.909
+margin_bottom = 722.618
+rect_rotation = -90.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/fg = SubResource( 1 )
+value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Planta" type="Sprite" parent="Planta_Nivel"]
+position = Vector2( 504.755, 358.557 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Conteudo_Nivel" type="Sprite" parent="Planta_Nivel/Planta"]
+position = Vector2( 267.619, 99.0094 )
+rotation = 3.14159
+scale = Vector2( 0.972758, 1.00473 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 500 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureButton" type="TextureButton" parent="Planta_Nivel/Planta"]
+margin_left = -248.087
+margin_top = -144.638
+margin_right = -186.087
+margin_bottom = -42.6384
+rect_scale = Vector2( 0.3, 0.3 )
+hint_tooltip = "ON: planta ligada
+OFF: planta desligada"
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Chave_Seletora" type="Sprite" parent="Planta_Nivel/Planta"]
+position = Vector2( -144.224, -108.725 )
+scale = Vector2( 0.23, 0.23 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="btn_seleciona" type="Sprite" parent="Planta_Nivel/Planta/Chave_Seletora"]
+position = Vector2( 2.78442, 29.528 )
+rotation = 0.523599
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Manometro_visor" type="Sprite" parent="Planta_Nivel"]
+position = Vector2( 420, 470 )
+scale = Vector2( 0.25, 0.25 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Manometro_ponteiro" type="Sprite" parent="Planta_Nivel/Manometro_visor"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Controlador" type="Node2D" parent="."]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Controlador"]
+margin_left = 12.1664
+margin_top = 3.0
+margin_right = 242.166
+margin_bottom = 714.0
+hint_tooltip = "[ Controlador ]
+
+Planta ligada (btn_OnOff = ON)
+Planta desligada (btn_OnOff = OFF))
+
+Modo AUTOMÁTICO (btn_AUTO = ON)
+ - permite o ajuste do nível desejado (Slider_SP)
+Modo MANUAL (btn_AUTO = MAN):
+ - ajuste da vazão de entrada (Slider_MV) 
+ - neste modo o SP varia aleatoriamente a cada 10s
+"
+border_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Controlador/ReferenceRect"]
+position = Vector2( 116.117, 354.722 )
+scale = Vector2( 0.10971, 707.725 )
+texture = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SetPoint_VSlider" type="VSlider" parent="Controlador/ReferenceRect"]
+margin_left = 35.9025
+margin_top = 44.0
+margin_right = 51.9025
+margin_bottom = 194.0
+rect_scale = Vector2( 5, 2 )
+rect_pivot_offset = Vector2( 5, 0 )
+mouse_default_cursor_shape = 2
+custom_styles/slider = SubResource( 4 )
+value = 50.0
+editable = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Vazao_Entrada_VSlider" type="VSlider" parent="Controlador/ReferenceRect"]
+margin_left = 155.42
+margin_top = 44.0
+margin_right = 171.42
+margin_bottom = 194.0
+rect_scale = Vector2( 5, 2 )
+rect_pivot_offset = Vector2( 5, 0 )
+mouse_default_cursor_shape = 2
+custom_styles/slider = SubResource( 5 )
+value = 50.0
+editable = false
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Controlador/ReferenceRect"]
+margin_left = 97.0
+margin_top = 347.0
+margin_right = 301.0
+margin_bottom = 372.0
+rect_rotation = -90.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/bg = SubResource( 6 )
+value = 50.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="btn_On_Off" type="CheckButton" parent="Controlador/ReferenceRect"]
+use_parent_material = true
+margin_left = 1.0
+margin_top = 335.0
+margin_right = 77.0
+margin_bottom = 375.0
+rect_scale = Vector2( 3, 3 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="btn_Man_Auto" type="TextureButton" parent="Controlador/ReferenceRect"]
+margin_left = 26.0
+margin_top = 445.0
+margin_right = 201.0
+margin_bottom = 515.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_SP" type="Label" parent="Controlador/ReferenceRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 36.48
+margin_top = -271.0
+margin_right = -173.52
+margin_bottom = -257.0
+rect_scale = Vector2( 2, 2 )
+text = "SP"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_PV" type="Label" parent="Controlador/ReferenceRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 94.3467
+margin_top = -271.0
+margin_right = -112.653
+margin_bottom = -257.0
+rect_scale = Vector2( 2, 2 )
+text = "PV"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_MV" type="Label" parent="Controlador/ReferenceRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 153.067
+margin_top = -271.0
+margin_right = -54.933
+margin_bottom = -256.0
+rect_scale = Vector2( 2, 2 )
+text = "MV"
+align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Rect_ParamPID" type="ReferenceRect" parent="Controlador/ReferenceRect"]
+visible = false
+margin_left = 20.0
+margin_top = 525.0
+margin_right = 212.0
+margin_bottom = 693.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_Kp" type="Label" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 6.0
+margin_top = 20.0
+margin_right = 48.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 7 )
+text = "Kp:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_Ki" type="Label" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 7.83365
+margin_top = 68.0
+margin_right = 49.8336
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 7 )
+text = "Ki:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_Kd" type="Label" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 6.0
+margin_top = 116.0
+margin_right = 48.0
+margin_bottom = 150.0
+custom_fonts/font = SubResource( 7 )
+text = "Kd:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TxtEdt_Kp" type="TextEdit" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 62.0
+margin_top = 16.0
+margin_right = 186.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 8 )
+text = "1.4"
+minimap_width = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TxtEdt_Ki" type="TextEdit" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 62.0
+margin_top = 64.0
+margin_right = 186.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 8 )
+text = "1.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TxtEdt_Kd" type="TextEdit" parent="Controlador/ReferenceRect/Rect_ParamPID"]
+margin_left = 62.0
+margin_top = 112.0
+margin_right = 186.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 8 )
+text = "0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Charts" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GDCharts" type="ReferenceRect" parent="Charts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 789.0
+margin_top = 55.0
+margin_right = 1157.0
+margin_bottom = 379.0
+rect_scale = Vector2( 1.16, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+dot_texture = ExtResource( 7 )
+grid_color = Color( 0.0666667, 0.0901961, 0.109804, 0.670588 )
+line_width = 3.0
+chart_background_opacity = 0.65
+UseAnimation = false
+
+[node name="SampleTime" type="Timer" parent="Charts"]
+autostart = true
+[connection signal="toggled" from="Planta_Nivel/Planta/TextureButton" to="." method="_on_TextureButton_toggled"]
+[connection signal="toggled" from="Controlador/ReferenceRect/btn_On_Off" to="." method="_on_btn_On_Off_toggled"]
+[connection signal="toggled" from="Controlador/ReferenceRect/btn_On_Off" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="Controlador/ReferenceRect/btn_Man_Auto" to="." method="_on_btn_Man_Auto_toggled"]
+[connection signal="focus_exited" from="Controlador/ReferenceRect/Rect_ParamPID/TxtEdt_Kp" to="." method="_on_TxtEdt_Kp_focus_exited"]
+[connection signal="focus_exited" from="Controlador/ReferenceRect/Rect_ParamPID/TxtEdt_Ki" to="." method="_on_TxtEdt_Ki_focus_exited"]
+[connection signal="focus_exited" from="Controlador/ReferenceRect/Rect_ParamPID/TxtEdt_Kd" to="." method="_on_TxtEdt_Kd_focus_exited"]
+[connection signal="timeout" from="Charts/SampleTime" to="Charts" method="_on_SampleTime_timeout"]

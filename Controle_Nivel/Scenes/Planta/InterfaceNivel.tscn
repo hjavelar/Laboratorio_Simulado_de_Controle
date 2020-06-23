@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://planta_nivel.png" type="Texture" id=1]
+[ext_resource path="res://Nivel.png" type="Texture" id=2]
+[ext_resource path="res://Button_On.png" type="Texture" id=3]
+[ext_resource path="res://Button_Off.png" type="Texture" id=4]
+[ext_resource path="res://CRL_imgs/Chave_seletora_CRL.jpg" type="Texture" id=5]
+[ext_resource path="res://CRL_imgs/Chave_seletora_CRL_zero_graus.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Planta/InterfaceNivel.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Planta/Chave_seletora.gd" type="Script" id=8]
+[ext_resource path="res://Manometro_visor.png" type="Texture" id=9]
+[ext_resource path="res://Manometro_ponteiro.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Planta/Manometro.gd" type="Script" id=11]
+
+[node name="InterfaceNivel" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Estrutura" type="Sprite" parent="."]
+position = Vector2( 322.449, 435.174 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Conteudo_Nivel" type="Sprite" parent="Estrutura"]
+position = Vector2( 270.248, 97.4883 )
+rotation = 3.14159
+scale = Vector2( 1.01203, 1 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 434 )
+
+[node name="btnLiga" type="TextureButton" parent="Estrutura"]
+margin_left = -248.0
+margin_top = -145.0
+margin_right = -230.0
+margin_bottom = -115.0
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chave_seletora" type="Sprite" parent="."]
+position = Vector2( 178.068, 328.454 )
+scale = Vector2( 0.23, 0.23 )
+texture = ExtResource( 5 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="knob" type="Sprite" parent="Chave_seletora"]
+position = Vector2( 3.18594, 29.278 )
+rotation = 0.523599
+scale = Vector2( 1.15962, 1.15962 )
+texture = ExtResource( 6 )
+
+[node name="Manometro" type="Sprite" parent="."]
+position = Vector2( 136.921, 583.067 )
+scale = Vector2( 0.23, 0.23 )
+texture = ExtResource( 9 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+pressure = 100
+
+[node name="ponteiro" type="Sprite" parent="Manometro"]
+position = Vector2( -1.78288, 0.692291 )
+scale = Vector2( 1.108, 1.108 )
+texture = ExtResource( 10 )

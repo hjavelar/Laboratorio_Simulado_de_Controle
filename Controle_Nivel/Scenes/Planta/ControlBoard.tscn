@@ -1,0 +1,272 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/Planta/gradient.tres" type="Gradient" id=1]
+[ext_resource path="res://Scenes/Planta/PV_Style.tres" type="StyleBox" id=2]
+[ext_resource path="res://Botao_Manual_Automatico_ON.png" type="Texture" id=3]
+[ext_resource path="res://Botao_Manual_Automatico_OFF.png" type="Texture" id=4]
+[ext_resource path="res://Botao_OnOff_OFF.png" type="Texture" id=5]
+[ext_resource path="res://Botao_OnOff_ON.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Planta/ControlBoard.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Planta/MV_Style.tres" type="StyleBox" id=8]
+
+[sub_resource type="GradientTexture" id=1]
+gradient = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.980392, 0.054902, 0.270588, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/Font/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = SubResource( 3 )
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://assets/Font/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 28
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://assets/Font/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 28
+font_data = SubResource( 8 )
+
+[node name="ControlBoard" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.950012
+margin_right = 230.95
+margin_bottom = 720.0
+rect_min_size = Vector2( 230, 720 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SP" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sldSP" type="VSlider" parent="SP"]
+margin_left = 4.0
+margin_top = 47.0
+margin_right = 20.0
+margin_bottom = 187.0
+rect_scale = Vector2( 5, 2 )
+custom_styles/slider = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbSP" type="Label" parent="SP"]
+margin_left = 23.5522
+margin_top = 5.0
+margin_right = 68.5522
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "SP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MV" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sldMV" type="VSlider" parent="MV"]
+margin_left = 145.0
+margin_top = 47.0
+margin_right = 161.0
+margin_bottom = 188.0
+rect_scale = Vector2( 5, 2 )
+custom_styles/slider = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbMV" type="Label" parent="MV"]
+margin_left = 158.643
+margin_top = 5.0
+margin_right = 212.643
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "MV"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PV" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pgPV" type="ProgressBar" parent="PV"]
+margin_left = 94.0
+margin_top = 329.0
+margin_right = 281.0
+margin_bottom = 359.0
+rect_rotation = -90.0
+rect_scale = Vector2( 1.5, 1.5 )
+theme = SubResource( 5 )
+custom_styles/bg = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbPV" type="Label" parent="PV"]
+margin_left = 93.2751
+margin_top = 5.0
+margin_right = 139.275
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "PV"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnLiga" type="TextureButton" parent="Buttons"]
+margin_left = 31.5784
+margin_top = 363.259
+margin_right = 189.578
+margin_bottom = 433.259
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnAuto" type="TextureButton" parent="Buttons"]
+margin_left = 31.5784
+margin_top = 439.379
+margin_right = 189.578
+margin_bottom = 509.379
+toggle_mode = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PID" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="ReferenceRect" parent="PID"]
+margin_left = 24.0
+margin_top = 542.0
+margin_right = 209.0
+margin_bottom = 690.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edKp" type="TextEdit" parent="PID/Frame"]
+margin_left = 78.0
+margin_top = 6.0
+margin_right = 177.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 7 )
+text = "1.4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbKp" type="Label" parent="PID/Frame"]
+margin_left = 4.35293
+margin_top = 13.6116
+margin_right = 46.3529
+margin_bottom = 46.6116
+custom_fonts/font = SubResource( 9 )
+text = "Kp:"
+
+[node name="edKi" type="TextEdit" parent="PID/Frame"]
+margin_left = 79.0
+margin_top = 52.0
+margin_right = 177.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 7 )
+text = "1.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbKi" type="Label" parent="PID/Frame"]
+margin_left = 4.67646
+margin_top = 59.8527
+margin_right = 46.6765
+margin_bottom = 92.8527
+custom_fonts/font = SubResource( 9 )
+text = "Ki:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edKd" type="TextEdit" parent="PID/Frame"]
+margin_left = 79.0
+margin_top = 98.0
+margin_right = 177.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 7 )
+text = "0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbKd" type="Label" parent="PID/Frame"]
+margin_left = 5.0
+margin_top = 105.248
+margin_right = 47.0
+margin_bottom = 138.248
+custom_fonts/font = SubResource( 9 )
+text = "Kd:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="SP/sldSP" to="." method="_on_sldSP_value_changed"]
+[connection signal="toggled" from="Buttons/btnLiga" to="." method="_on_btnLiga_toggled"]
+[connection signal="toggled" from="Buttons/btnAuto" to="." method="_on_btnAuto_toggled"]
+[connection signal="focus_exited" from="PID/Frame/edKp" to="." method="_on_edKp_focus_exited"]
+[connection signal="focus_exited" from="PID/Frame/edKi" to="." method="_on_edKi_focus_exited"]
+[connection signal="focus_exited" from="PID/Frame/edKd" to="." method="_on_edKd_focus_exited"]

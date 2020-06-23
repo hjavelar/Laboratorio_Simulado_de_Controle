@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Planta/Controlador_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Planta/Controlador_Manual.gd" type="Script" id=2]
+
+[node name="Controlador_Manual" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

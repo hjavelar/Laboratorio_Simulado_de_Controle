@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/UI/ControladorDeJanelas.gd" type="Script" id=1]
+[ext_resource path="res://Controle_Nivel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/Transicao.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Planta/Controle_nivel_Ex.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Planta/Game_Nivel.tscn" type="PackedScene" id=6]
+
+[node name="ControladorDeJanelas" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+cenas = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="Transicao" parent="." instance=ExtResource( 4 )]
