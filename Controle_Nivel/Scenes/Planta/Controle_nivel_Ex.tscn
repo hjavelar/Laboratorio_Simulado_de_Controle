@@ -55,13 +55,13 @@ __meta__ = {
 }
 
 [node name="pgVazao_saida" type="ProgressBar" parent="Vazao_Saida"]
-margin_left = 867.149
-margin_top = 465.851
-margin_right = 983.149
-margin_bottom = 502.851
-rect_rotation = 90.0
+margin_left = 788.45
+margin_top = 699.156
+margin_right = 904.45
+margin_bottom = 736.156
+rect_rotation = -90.0
 rect_scale = Vector2( 2, 2 )
-value = 50.0
+value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
