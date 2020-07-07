@@ -59,6 +59,8 @@ func _on_ControlBoard_Liga_changed(newState):
 
 func _on_ControlBoard_PID_changed(Kp, Ki, Kd):
 	Controle_PID.setPID(Kp, Ki, Kd)
+	if Ki==0:
+		Controle_PID.integral = 0
 	pass 
 
 

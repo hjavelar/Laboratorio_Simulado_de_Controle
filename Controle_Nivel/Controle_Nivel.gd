@@ -163,6 +163,8 @@ func _on_TxtEdt_Kp_focus_exited():
 func _on_TxtEdt_Ki_focus_exited():
 	Ki = TxtEdt_Ki.text.to_float()
 	TxtEdt_Ki.text = String(Ki)
+	if Ki==0:
+		I = 0
 
 func _on_TxtEdt_Kd_focus_exited():
 	Kd = TxtEdt_Kd.text.to_float()
