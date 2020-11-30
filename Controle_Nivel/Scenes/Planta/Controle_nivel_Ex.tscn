@@ -40,6 +40,7 @@ scale = Vector2( 0.8, 0.8 )
 [node name="Planta_nivel" parent="Planta" instance=ExtResource( 4 )]
 
 [node name="ControlBoard" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1.67017, 0 )
 
 [node name="Controlador" type="Node" parent="."]
 

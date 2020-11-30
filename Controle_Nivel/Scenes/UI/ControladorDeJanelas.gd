@@ -24,7 +24,3 @@ func CarregaCena(tipo:PackedScene)->void:
 func CarregaCenaIndex(index:int)->void:
 	if cenas.size() > index:
 		CarregaCena(cenas[index])
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
